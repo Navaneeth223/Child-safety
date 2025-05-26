@@ -1,0 +1,62 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { MapPin, ShieldCheck, Siren, Volume2, Bell } from "lucide-react";
+
+export default function Home() {
+  return (
+    <div className="bg-[#F9FAFB] text-[#1B263B] font-sans">
+      {/* Hero Section */}
+      <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-br from-[#5AA9E6] to-[#75E6DA] text-white">
+        <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-5xl md:text-6xl font-bold mb-4">
+          Peace of Mind, Every Step of the Way
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-lg md:text-xl mb-6 max-w-xl">
+          Real-time location, instant alerts, and smart protection for your child – all in one app.
+        </motion.p>
+        <div className="flex gap-4">
+          <Button className="text-lg px-6 py-2 bg-white text-[#1B263B] hover:bg-gray-100">Download App</Button>
+          <Button variant="outline" className="text-lg px-6 py-2 border-white text-white hover:bg-white hover:text-[#1B263B]">Watch How It Works</Button>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Smart Features That Keep Kids Safe</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[ 
+            { title: "Safe Zones", icon: <MapPin className="w-8 h-8" />, desc: "Get alerts when kids leave school or arrive home." },
+            { title: "Live Location", icon: <ShieldCheck className="w-8 h-8" />, desc: "Real-time GPS with route history." },
+            { title: "SOS Button", icon: <Siren className="w-8 h-8" />, desc: "One-tap emergency signal to guardians." },
+            { title: "Ambient Sound", icon: <Volume2 className="w-8 h-8" />, desc: "Listen in when things don’t feel right." },
+            { title: "Smart Alerts", icon: <Bell className="w-8 h-8" />, desc: "Get smart behavior notifications with AI." }
+          ].map((f, i) => (
+            <Card key={i} className="rounded-2xl shadow-lg hover:shadow-xl transition">
+              <CardContent className="p-6 flex flex-col items-center text-center">
+                <div className="mb-4 text-[#5AA9E6]">{f.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+                <p className="text-gray-600">{f.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-[#EAF6FA] py-16 px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8">What Parents Say</h2>
+        <p className="max-w-3xl mx-auto text-lg italic">“SafeSteps makes parenting a little easier every day. I feel so reassured knowing I can check in whenever needed.”</p>
+        <p className="mt-4 font-semibold">– Priya R., Mother of two</p>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#1B263B] text-white py-10 px-6 text-center">
+        <div className="space-y-2">
+          <p>About | Contact | Privacy | Careers</p>
+          <p>Follow us on 🌐 Facebook | Instagram | Twitter</p>
+          <p className="text-sm">© 2025 SafeSteps Inc. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
